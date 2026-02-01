@@ -1,26 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* BuyNet Brand Colors */
+  --deep-navy: #1a1a2e;
+  --dark-blue: #16213e;
+  --bright-blue: #0f3460;
+  --pure-white: #ffffff;
+  --light-gray: #f8f9fa;
+  --medium-gray: #6c757d;
+  --success-green: #28a745;
+  --warning-amber: #ffc107;
+  --error-red: #dc3545;
+
+  --background: var(--deep-navy);
+  --foreground: var(--pure-white);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Literata', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--deep-navy);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bright-blue);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-blue);
+}
+
+/* Selection color */
+::selection {
+  background: var(--bright-blue);
+  color: var(--pure-white);
+}
+
+::-moz-selection {
+  background: var(--bright-blue);
+  color: var(--pure-white);
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+  outline: 2px solid var(--bright-blue);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for interactive elements */
+a, button {
+  transition: all 0.2s ease;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
